@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* M3 Nexus Dark Palette */
+  --color-bg: #0D0E12;
+  --color-surface: #16181D;
+  --color-surface-variant: #22252D;
+  --color-border: #2D313A;
+  --color-primary: #9BA9FF; /* Nexus Blue/Purple */
+  --color-secondary: #D0BCFF;
+  --color-tertiary: #A5D6A7;
+  --color-on-surface: #E3E2E6;
+  --color-on-surface-muted: #9BA0AA;
+  
+  --color-accent: var(--color-primary);
+  --color-ink: var(--color-on-surface);
+  --color-ink-muted: var(--color-on-surface-muted);
+
+  --radius-xl: 28px;
+  --radius-2xl: 32px;
+
+  @keyframes progress-indefinite {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  --animate-progress-indefinite: progress-indefinite 1.5s infinite linear;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-ink font-sans antialiased selection:bg-primary/30 selection:text-primary;
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(155, 169, 255, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 100% 100%, rgba(208, 188, 255, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-variant rounded-full hover:bg-border;
+  }
+}
+
+@utility glow-primary {
+  box-shadow: 0 0 20px -5px rgba(155, 169, 255, 0.3);
+}
+
+.glass {
+  @apply bg-surface/60 backdrop-blur-xl border border-white/5;
+}
+
+.glass-dark {
+  @apply bg-black/40 backdrop-blur-2xl border border-white/10;
+}
+
+.m3-card {
+  @apply bg-surface rounded-2xl border border-border p-6 transition-all duration-300 hover:border-primary/30 hover:glow-primary;
+}
+

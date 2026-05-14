@@ -1,0 +1,6 @@
+{
+  "name": "CommAgent 管理控制台",
+  "description": "企业级 Agent 中台运营管理平台。集成租户管理、智能体编排、知识库构建及 AI 分镜脚本生成等核心能力。",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
